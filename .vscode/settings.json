@@ -1,0 +1,9 @@
+{
+    "editor.fontSize": 20,
+    "debug.console.fontSize": 18,
+    "markdown.preview.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "markdown.preview.lineHeight": 1,
+    "editor.fontWeight": "500",
+    "editor.tabSize": 2
+}
