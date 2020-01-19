@@ -18,10 +18,12 @@ Route::get('/secret', 'Home1Controller@secret')
   ->middleware('can:home1.secret');
 
 
-Route::resource('/posts','PostController');
-Route::get('/dashboard', 'PostController@dashboard')->name('posts.dashboard');
+Route::resource('posts','PostController');
+Route::get('dashboard', 'PostController@dashboard')->name('posts.dashboard');
 Route::get('/posts/tag/{tag}', 'PostTagController@index')->name('posts.tag.index');
 
+
+Route::resource('posts.comments', 'PostCommentController')->only(['store']);
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

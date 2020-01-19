@@ -30,12 +30,15 @@
         <p>Currently Read By <strong>{{ $counter }}</strong> People</p>
 
         <h4>Comments</h4>
+
+        @include('comments._form')
+
         @forelse ($post->comments as $comment)
             <div class="media mb-3">
                 <i class="fa fa-user fa-2x bg-secondary rounded p-2 mr-2 mt-1" style="border: #bbb 2px solid;"></i>
                 <div class="media-body">
                     <small class="text-muted">
-                        @updated(['date' => $comment->created_at])
+                        @updated(['date' => $comment->created_at, 'name' => $comment->user->name])
                         @endupdated
                     </small>
 
