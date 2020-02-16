@@ -5,11 +5,15 @@
     <div class="col-8">
         <h1>
             {{ $post->title }}
-            @badge(['show' => now()->diffInMinutes($post->created_at) < 30])
-                Brand New
-            @endbadge
+            <small>
+                @badge(['show' => now()->diffInMinutes($post->created_at) < 30])
+                    Brand New
+                @endbadge
+            </small>
         </h1>
-
+        @if ($post->image)
+            <img src="{{ $post->image->url() }}" class="img-fluid">
+        @endif
         <p>{{ $post->content }}</p>
 
         <div>

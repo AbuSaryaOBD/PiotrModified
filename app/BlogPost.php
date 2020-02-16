@@ -25,6 +25,11 @@ class BlogPost extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function image()
+    {
+        return $this->hasOne('App\Image');
+    }
+
     public function comments()
     {
         return $this->hasMany('App\Comment')->latest();
@@ -60,6 +65,7 @@ class BlogPost extends Model
 
         static::deleting(function (BlogPost $blogPost) {
             $blogPost->comments()->delete();
+            // $blogPost->image()->delete();
             Cache::tags(['blog-post'])->forget("blog-post-{$blogPost->id}");
         });
         static::updating(function (BlogPost $blogPost) {
