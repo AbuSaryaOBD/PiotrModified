@@ -61,7 +61,7 @@ class PostController extends Controller
 
         if ($request->hasFile('thumbnail')) {
             $path = $request->file('thumbnail')->store('thumbnails');
-            $blogPost->image()->save(Image::create(['path' => $path]));
+            $blogPost->image()->save(Image::make(['path' => $path]));
         }
 
         return redirect()->route('posts.show',$blogPost->id)->with('success','Blog Post Has Been Created Successfuly.');
@@ -171,7 +171,7 @@ class PostController extends Controller
                 $post->image->path = $path;
                 $post->image->save();
             } else {
-                $post->image()->save(Image::create(['path' => $path]));
+                $post->image()->save(Image::make(['path' => $path]));
             }
 
         }

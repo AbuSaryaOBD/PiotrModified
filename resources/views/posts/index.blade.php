@@ -20,7 +20,7 @@
                     <p class="card-text">{{ Str::words($post->content, 15) }}</p>
                     <hr class="my-1">
                     <small>
-                        @updated(['date' => $post->created_at, 'name' => $post->user->name])
+                        @updated(['date' => $post->created_at, 'name' => $post->user->name, 'userId' => $post->user->id])
                         @endupdated
                     </small>
                     @tags(['tags' => $post->tags])@endtags

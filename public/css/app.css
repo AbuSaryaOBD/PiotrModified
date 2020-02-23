@@ -11356,3 +11356,8 @@ a.text-dark:focus {
   }
 }
 
+.avatar {
+  width: 128px;
+  height: 128px;
+}
+
