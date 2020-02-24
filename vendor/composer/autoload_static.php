@@ -459,6 +459,7 @@ class ComposerStaticInitf5d7271151496f2529270bdbcb57b144
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\StoreComment' => __DIR__ . '/../..' . '/app/Http/Requests/StoreComment.php',
         'App\\Http\\Requests\\StorePost' => __DIR__ . '/../..' . '/app/Http/Requests/StorePost.php',
+        'App\\Http\\Requests\\UpdateUser' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUser.php',
         'App\\Http\\ViewComposers\\ActivityComposer' => __DIR__ . '/../..' . '/app/Http/ViewComposers/ActivityComposer.php',
         'App\\Image' => __DIR__ . '/../..' . '/app/Image.php',
         'App\\Policies\\BlogPostPolicy' => __DIR__ . '/../..' . '/app/Policies/BlogPostPolicy.php',
