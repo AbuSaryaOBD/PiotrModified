@@ -28,6 +28,11 @@ Route::resource('users.comments', 'UserCommentController')->only(['store']);
 
 Route::resource('users', 'UserController')->only(['show', 'edit', 'update']);
 
+Route::get('mailable', function () {
+  $c = App\Comment::find(1);
+  return new App\Mail\CommentPostedMarkdown($c);
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
