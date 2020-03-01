@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -68,6 +67,14 @@ class User extends Authenticatable
         return $query->withCount(['posts' => function (Builder $query){
             $query->whereBetween(static::CREATED_AT, [now()->subMonths(1), now()]);
         }])->has('posts', '>=', 2)
-           ->orderBy('posts_count', 'desc');
+            ->orderBy('posts_count', 'desc');
+    }
+
+    public function scopeThatHasCommentedOnPost(Builder $query, BlogPost $post)
+    {
+        return $query->whereHas('comments', function ($query) use ($post) {
+            return $query->where('commentable_id', '=', $post->id)
+                ->where('commentable_type', '=', BlogPost::class);
+        });
     }
 }
