@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BlogPost;
+use App\Events\BlogPostPosted;
 use App\Http\Requests\StorePost;
 use App\Image;
 use App\User;
@@ -63,6 +64,8 @@ class PostController extends Controller
             $path = $request->file('thumbnail')->store('thumbnails');
             $blogPost->image()->save(Image::make(['path' => $path]));
         }
+
+        event(new BlogPostPosted($blogPost));
 
         return redirect()->route('posts.show',$blogPost->id)->with('success','Blog Post Has Been Created Successfuly.');
     }
