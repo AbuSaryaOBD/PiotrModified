@@ -31,10 +31,7 @@
                             <small><i class="fas fa-clock mr-1"></i>{{ $post->created_at->diffForHumans() }}</small>
                             @if ($post->comments_count)
                                 <small class="mx-1">|</small>
-                                <small><i class="fas fa-comment mr-1"></i>{{ $post->comments_count }}</small>
-                            @else
-                                <small class="mx-1">|</small>
-                                <small><i class="fas fa-comment mr-1"></i>0</small>
+                                <small><i class="fas fa-comment mr-1"></i>{{ trans_choice('messages.comments', $post->comments_count) }}</small>
                             @endif
                         </div>
                         @auth

@@ -21,27 +21,30 @@
 <body>
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4">
-            <h5 class="my-0 mr-md-auto font-weight-bold">Laravel Blog</h5>
+            <h5 class="my-0 mr-md-auto font-weight-bold">{{ __('Laravel Blog') }}</h5>
             <nav class="my-2 my-md-0">
-                <a class="p-1 text-dark text-muted" href="{{ route('home1') }}">Home</a><span class="text-center shadow-lg">.</span>
-                <a class="p-1 text-dark text-muted" href="{{ route('contact') }}">Contact</a><span class="text-center shadow-lg">.</span>
-                <a class="p-1 text-dark text-muted" href="{{ route('posts.index') }}">Blog</a>
+                <a class="p-1 text-dark text-muted" href="{{ route('home1') }}">{{ __('Home') }}</a><span class="text-center shadow-lg">.</span>
+                <a class="p-1 text-dark text-muted" href="{{ route('contact') }}">{{ __('Contact') }}</a><span class="text-center shadow-lg">.</span>
+                <a class="p-1 text-dark text-muted" href="{{ route('posts.index') }}">{{ __('Blog') }}</a>
                 @if (Auth::user())
                     <span class="text-center shadow-lg">.</span>
-                    <a class="p-1 text-dark text-muted" href="{{ route('posts.dashboard') }}">Dashboard</a><span class="text-center shadow-lg">.</span>
-                    <a class="p-1 text-dark text-muted" href="{{ route('posts.create') }}">Add Post</a>                 
+                    <a class="p-1 text-dark text-muted" href="{{ route('posts.dashboard') }}">{{ __('Dashboard') }}</a><span class="text-center shadow-lg">.</span>
+                    <a class="p-1 text-dark text-muted" href="{{ route('posts.create') }}">{{ __('Add Post') }}</a>                 
                 @endif
             
                 <!-- Right Side Of Navbar -->
                 @guest
                     <span class="text-center shadow-lg">|</span>
-                    <a class="px-1" href="{{ route('login') }}">Login</a>  
+                    <a class="px-1" href="{{ route('login') }}">{{ __('Login') }}</a>  
                     @if (Route::has('register'))
                         <span class="text-center shadow-lg">.</span>
-                        <a class="px-1" href="{{ route('register') }}">Register</a>
+                        <a class="px-1" href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
                     <span class="text-center shadow-lg text-muted px-1 d-inline">|</span>
+                    <a class="p-1 text-dark text-muted" href="{{ route('users.show', ['user' => Auth::user()->id]) }}">{{ __('Profile') }}</a>                 
+                    <a class="p-1 text-dark text-muted" href="{{ route('users.edit', ['user' => Auth::user()->id]) }}">{{ __('Edit Profile') }}</a>                 
+
                     <a class="dropdown">
                         <a id="navbarDropdown" class="dropdown-toggle p-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

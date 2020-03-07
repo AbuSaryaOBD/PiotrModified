@@ -91,7 +91,10 @@ class UserController extends Controller
             }
         }
 
-        return redirect()->back()->withSuccess('Avatar has been updated successfuly!');
+        $user->locale = $request->get('locale');
+        $user->save();
+
+        return redirect()->back()->withSuccess('Profile has been updated successfuly!');
     }
 
     /**

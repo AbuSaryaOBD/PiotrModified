@@ -21,9 +21,20 @@
         <label for="name">Name: </label>
         <input type="text" name="name" value="" class="form-control">
       </div>
+
+      <div class="form-group">
+        <label for="locale"> {{ __('Language:') }} </label>
+        <select class="form-control" name="locale">
+          @foreach (App\User::LOCALES as $locale => $label)
+              <option value="{{ $locale }}" {{ $user->locale !== $locale ?: 'selected' }} >{{ $label }}</option>
+          @endforeach
+        </select>
+      </div>
+      
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Save Changes</button>
       </div>
+
       @errors @enderrors
     </div>
   </div>
