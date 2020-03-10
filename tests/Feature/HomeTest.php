@@ -13,7 +13,6 @@ class HomeTest extends TestCase
         $response = $this->get('/');
 
         $response->assertSeeText('Welcome To Laravel');
-        $response->assertSeeText('This is the contact page !');
     }
 
     public function testContactPageIsWorkingCorrectly()
