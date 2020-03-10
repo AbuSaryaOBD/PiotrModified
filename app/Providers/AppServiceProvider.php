@@ -11,6 +11,8 @@ use App\Services\Counter;
 use App\Services\DummyCounter;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Resources\Comment as CommentResource;
+use Illuminate\Http\Resources\Json\Resource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -58,6 +60,10 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\CounterContract',
             Counter::class
         );
+
+        // CommentResource::withoutWrapping();
+        Resource::withoutWrapping();
+
         // $this->app->bind(
         //     'App\Contracts\CounterContract',
         //     DummyCounter::class
